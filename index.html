@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>[Scott Qian] - 个人主页</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg-light: #fdfdfd;
+      --bg-dark: #1e1e1e;
+      --text-light: #333;
+      --text-dark: #eee;
+      --primary: #2c7be5;
+    }
+    body {
+      font-family: "Segoe UI", Georgia, serif;
+      margin: 0;
+      padding: 0;
+      background: var(--bg-light);
+      color: var(--text-light);
+      transition: background 0.3s, color 0.3s;
+      line-height: 1.6;
+    }
+    body.dark {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: var(--primary);
+      color: white;
+    }
+    header h1 { margin: 0; font-size: 2.4rem; }
+    header p { margin-top: 0.5rem; font-style: italic; }
+    nav { margin-top: 1rem; }
+    nav a {
+      margin: 0 12px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a:hover { text-decoration: underline; }
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem 1.5rem;
+    }
+    h2 { border-bottom: 2px solid var(--primary); padding-bottom: 0.3rem; }
+    ul { padding-left: 1.2rem; }
+    li { margin-bottom: 0.6rem; }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      background: #24292f;
+      color: #aaa;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+      margin: 0.2rem;
+    }
+    .btn:hover { background: #1f6feb; }
+    .controls {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      display: flex;
+      gap: 0.5rem;
+    }
+    .controls button {
+      background: #444;
+      color: white;
+      border: none;
+      padding: 0.5rem 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="controls">
+    <button onclick="toggleTheme()">🌙</button>
+    <button onclick="toggleLang()">中/EN</button>
+  </div>
+
+  <header>
+    <h1 id="name">[Scott Qian]</h1>
+    <p id="title">研究员 | 偏微分方程与金融数学</p>
+    <nav>
+      <a href="#about" id="nav-about">关于我</a>
+      <a href="#research" id="nav-research">研究方向</a>
+      <a href="#experience" id="nav-exp">工作经历</a>
+      <a href="#projects" id="nav-proj">研究项目</a>
+      <a href="#publications" id="nav-pub">论文</a>
+      <a href="#contact" id="nav-contact">联系</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2 id="about-title">👋 关于我</h2>
+    <p id="about-text">我是 [Scott Qian]，目前在 [University of Calgary] 工作，研究方向包括偏微分方程、数理金融和数值分析。</p>
+  </section>
+
+  <section id="research">
+    <h2 id="research-title">🔬 研究方向</h2>
+    <ul id="research-list">
+      <li>数学建模与偏微分方程</li>
+      <li>金融工程与数理金融</li>
+      <li>高性能计算与数值算法</li>
+    </ul>
+  </section>
+
+  <section id="experience">
+    <h2 id="exp-title">💼 工作经历</h2>
+    <ul id="exp-list">
+      <li>2024 夏季 – 中国国泰君安证券公司，暑期实习三个月，参与研究课题：<i>Loss Reserving in Insurance using Deterministic & Stochastic Methods</i></li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2 id="proj-title">📊 研究项目</h2>
+    <ul id="proj-list">
+      <li>保险准备金估算：确定性与随机方法的比较研究</li>
+      <li>偏微分方程的数值解法及应用</li>
+    </ul>
+  </section>
+
+  <section id="publications">
+    <h2 id="pub-title">📖 论文</h2>
+    <ul id="pub-list">
+      <li><i>Weak Solutions to Second-Order Elliptic Equations: Existence, Uniqueness, and Regularity</i></li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2 id="contact-title">📬 7808730727</h2>
+    <p>Email: <a href="mailto:你的邮箱">scottqian727@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/你的用户名" target="_blank">github.com/scottqian727</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 [Scott Qian] | GitHub Pages</p>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+      document.querySelectorAll('.controls button')[0].textContent =
+        document.body.classList.contains('dark') ? "☀️" : "🌙";
+    }
+
+    let lang = "zh";
+    function toggleLang() {
+      if (lang === "zh") {
+        // 切换到英文
+        document.getElementById("title").textContent = "Researcher | PDEs & Mathematical Finance";
+        document.getElementById("nav-about").textContent = "About";
+        document.getElementById("nav-research").textContent = "Research";
+        document.getElementById("nav-exp").textContent = "Experience";
+        document.getElementById("nav-proj").textContent = "Projects";
+        document.getElementById("nav-pub").textContent = "Publications";
+        document.getElementById("nav-contact").textContent = "Contact";
+
+        document.getElementById("about-title").textContent = "👋 About Me";
+        document.getElementById("about-text").textContent = "I am [Your Name], currently at [Your Institution]. My research interests include PDEs, mathematical finance, and numerical analysis.";
+
+        document.getElementById("research-title").textContent = "🔬 Research Areas";
+        document.getElementById("research-list").innerHTML = `
+          <li>Mathematical modeling & PDEs</li>
+          <li>Financial engineering & mathematical finance</li>
+          <li>High-performance computing & numerical algorithms</li>
+        `;
+
+        document.getElementById("exp-title").textContent = "💼 Experience";
+        document.getElementById("exp-list").innerHTML = `
+          <li>Summer 2024 – Guotai Junan Securities, internship (3 months). Research project: <i>Loss Reserving in Insurance using Deterministic & Stochastic Methods</i></li>
+        `;
+
+        document.getElementById("proj-title").textContent = "📊 Projects";
+        document.getElementById("proj-list").innerHTML = `
+          <li>Insurance loss reserving: comparison of deterministic & stochastic methods</li>
+          <li>Numerical solutions of PDEs and their applications</li>
+        `;
+
+        document.getElementById("pub-title").textContent = "📖 Publications";
+        document.getElementById("pub-list").innerHTML = `
+          <li><i>Weak Solutions to Second-Order Elliptic Equations: Existence, Uniqueness, and Regularity</i></li>
+        `;
+
+        document.getElementById("contact-title").textContent = "📬 Contact";
+        lang = "en";
+      } else {
+        // 切换回中文
+        document.getElementById("title").textContent = "研究员 | 偏微分方程与金融数学";
+        document.getElementById("nav-about").textContent = "关于我";
+        document.getElementById("nav-research").textContent = "研究方向";
+        document.getElementById("nav-exp").textContent = "工作经历";
+        document.getElementById("nav-proj").textContent = "研究项目";
+        document.getElementById("nav-pub").textContent = "论文";
+        document.getElementById("nav-contact").textContent = "联系";
+
+        document.getElementById("about-title").textContent = "👋 关于我";
+        document.getElementById("about-text").textContent = "我是 [你的名字]，目前在 [你的机构] 工作，研究方向包括偏微分方程、数理金融和数值分析。";
+
+        document.getElementById("research-title").textContent = "🔬 研究方向";
+        document.getElementById("research-list").innerHTML = `
+          <li>数学建模与偏微分方程</li>
+          <li>金融工程与数理金融</li>
+          <li>高性能计算与数值算法</li>
+        `;
+
+        document.getElementById("exp-title").textContent = "💼 工作经历";
+        document.getElementById("exp-list").innerHTML = `
+          <li>2024 夏季 – 中国国泰君安证券公司，暑期实习三个月，参与研究课题：<i>Loss Reserving in Insurance using Deterministic & Stochastic Methods</i></li>
+        `;
+
+        document.getElementById("proj-title").textContent = "📊 研究项目";
+        document.getElementById("proj-list").innerHTML = `
+          <li>保险准备金估算：确定性与随机方法的比较研究</li>
+          <li>偏微分方程的数值解法及应用</li>
+        `;
+
+        document.getElementById("pub-title").textContent = "📖 论文";
+        document.getElementById("pub-list").innerHTML = `
+          <li><i>Weak Solutions to Second-Order Elliptic Equations: Existence, Uniqueness, and Regularity</i></li>
+        `;
+
+        document.getElementById("contact-title").textContent = "📬 联系方式";
+        lang = "zh";
+      }
+    }
+  </script>
+</body>
+</html>
